@@ -1,0 +1,24 @@
+{
+  "name": "ask.me",
+  "version": "1.0.0",
+  "description": "Ask.me é uma plataforma de perguntas e respostas onde qualquer usuário pode perguntar sobre um dúvida ou responder as perguntas que estão presentes no site.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lcsqueiroz/ask.me.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/lcsqueiroz/ask.me/issues"
+  },
+  "homepage": "https://github.com/lcsqueiroz/ask.me#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
