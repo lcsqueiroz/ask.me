@@ -2,9 +2,9 @@
   "name": "ask.me",
   "version": "1.0.0",
   "description": "Ask.me é uma plataforma de perguntas e respostas onde qualquer usuário pode perguntar sobre um dúvida ou responder as perguntas que estão presentes no site.",
-  "main": "index.js",
+  "main": "backend/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node backend/index.js"
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,9 @@
   },
   "homepage": "https://github.com/lcsqueiroz/ask.me#readme",
   "dependencies": {
-    "express": "^5.2.1"
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "mysql2": "^3.18.2",
+    "sequelize": "^6.37.7"
   }
 }

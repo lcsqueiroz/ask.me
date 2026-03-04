@@ -92,5 +92,12 @@ Este documento é o **filtro de qualidade** para:
 
 ---
 
-_Documento atualizado em: 03 de Março de 2026._
-_Autor: Lucas Queiroz - Estagiário em Desenvolvimento de Software_
+## 7. Protocolos de Segurança (Security Hardening)
+
+1. **Zero Trust Policy:** Validar todos os campos (title, body) no backend antes de processar no Sequelize.
+2. **CORS Restricted:** A API só deve responder a requisições originadas do domínio do projeto.
+3. **No Sensitive Leaks:** Proibido retornar colunas sensíveis ou objetos brutos do banco no JSON.
+4. **XSS Prevention:** Uso obrigatório de `.textContent` no Vanilla JS; sanitização de strings no Backend.
+5. **Rate Limit:** Limitar POSTs nas rotas de pergunta e resposta para prevenir spam no MySQL.
+   _Documento atualizado em: 03 de Março de 2026._
+   _Autor: Lucas Queiroz - Estagiário em Desenvolvimento de Software_
