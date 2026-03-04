@@ -99,5 +99,16 @@ Este documento é o **filtro de qualidade** para:
 3. **No Sensitive Leaks:** Proibido retornar colunas sensíveis ou objetos brutos do banco no JSON.
 4. **XSS Prevention:** Uso obrigatório de `.textContent` no Vanilla JS; sanitização de strings no Backend.
 5. **Rate Limit:** Limitar POSTs nas rotas de pergunta e resposta para prevenir spam no MySQL.
-   _Documento atualizado em: 03 de Março de 2026._
-   _Autor: Lucas Queiroz - Estagiário em Desenvolvimento de Software_
+
+### 8. Camada de Segurança Implementada
+
+- **Middlewares**: Helmet, CORS, Rate-Limit, Toobusy, body-parser.
+- **Configuração**: Centralizada em `/config/security.js` para desacoplar da inicialização do servidor.
+- **JSON Payload**: Limitação de tamanho de body para evitar ataques de estouro de memória.
+
+### 9. Tratamento de Erros e Status Codes
+
+- **Padrão de Resposta:** Todas as respostas de erro devem retornar um objeto JSON contendo o código e uma mensagem descritiva.
+- **Rate Limit (429):** Implementado para mitigar ataques de spam e garantir a disponibilidade do MySQL.
+  _Documento atualizado em: 03 de Março de 2026._
+  _Autor: Lucas Queiroz - Estagiário em Desenvolvimento de Software_

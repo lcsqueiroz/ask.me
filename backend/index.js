@@ -1,8 +1,12 @@
 require("dotenv").config();
+const setupSecurity = require("./middleware/security");
+
 const express = require("express");
 const app = express();
 const { Question, Answer } = require("./models/index");
 const database = require("./config/database");
+
+setupSecurity(app);
 
 database
   .sync()
@@ -15,6 +19,10 @@ database
 
 app.get("/", (req, res) => {
   res.send("Hello World");
+});
+
+app.post("/pergunta", (req, res) => {
+  res.send("Mensagem recebida");
 });
 
 app.listen(8000, () => {
