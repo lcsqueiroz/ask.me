@@ -110,5 +110,36 @@ Este documento é o **filtro de qualidade** para:
 
 - **Padrão de Resposta:** Todas as respostas de erro devem retornar um objeto JSON contendo o código e uma mensagem descritiva.
 - **Rate Limit (429):** Implementado para mitigar ataques de spam e garantir a disponibilidade do MySQL.
-  _Documento atualizado em: 03 de Março de 2026._
+
+### 10. Lógica de Controle (Controllers)
+
+- **Input Handling**: Extração seletiva de campos (Anti-Mass Assignment) e sanitização.
+- **Validation**: Gatekeeper de regras de negócio com retorno imediato de HTTP 400.
+- **Persistence**: Comunicação assíncrona com o Model via Sequelize.
+- **Response**: Padronização de saídas JSON com Status Codes semânticos (201 para sucesso, 500 para falhas críticas).
+
+### 11. Padrão de Codificação: Controllers
+
+- **Arquitetura**: Objeto Literal ou Classe exportada contendo métodos semânticos (`index`, `show`, `store`, `update`, `delete`).
+- **Data Flow**: `req` (entrada) -> Validação -> `Model` (persistência) -> `res` (saída).
+- **Error Handling**: Uso obrigatório de blocos `try/catch` em todas as funções assíncronas para prevenir o encerramento inesperado do processo (crash).
+- **Status Semântico**:
+  - 201: Recurso criado com sucesso.
+  - 400: Erro de validação/dados inválidos.
+  - 500: Falha crítica no servidor ou banco de dados.
+
+### 12. Fluxo Algorítmico do Controller
+
+- **Extraction**: Coleta seletiva via destructuring de `req.body`.
+- **Sanitization**: Remoção de ruídos (trim) e preparação da string.
+- **Validation**: Verificação de campos obrigatórios e limites de buffer (Security First).
+- **Persistence**: Gravação assíncrona blindada contra SQL Injection via Sequelize.
+- **HTTP Semantics**: Uso rigoroso de 201 (Sucesso), 400 (Erro do Cliente) e 500 (Erro do Servidor).
+
+### 13. Padrão de Roteamento (Routing Strategy)
+
+- **Decoupled Routes**: Uso de `express.Router()` para isolar endpoints por domínio (perguntas, respostas).
+- **API Prefixing**: Todos os endpoints de dados devem ser prefixados com `/api/` para diferenciar de possíveis rotas de arquivos estáticos.
+- **Controller Binding**: As rotas não devem conter lógica de negócio, apenas o mapeamento para os métodos do Controller.
+  _Documento atualizado em: 04 de Março de 2026._
   _Autor: Lucas Queiroz - Estagiário em Desenvolvimento de Software_
