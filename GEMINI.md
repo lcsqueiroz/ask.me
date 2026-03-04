@@ -141,5 +141,11 @@ Este documento é o **filtro de qualidade** para:
 - **Decoupled Routes**: Uso de `express.Router()` para isolar endpoints por domínio (perguntas, respostas).
 - **API Prefixing**: Todos os endpoints de dados devem ser prefixados com `/api/` para diferenciar de possíveis rotas de arquivos estáticos.
 - **Controller Binding**: As rotas não devem conter lógica de negócio, apenas o mapeamento para os métodos do Controller.
+
+### 14. Protocolo de Dados (Payload Strategy)
+
+- **Body-Driven IDs**: Chaves estrangeiras (Foreign Keys) devem ser enviadas preferencialmente via corpo da requisição (JSON) para evitar exposição em logs de URL.
+- **Type Validation**: Obrigatória a verificação de tipos numéricos para IDs antes da interação com o Model, garantindo a integridade dos dados (Security First).
+
   _Documento atualizado em: 04 de Março de 2026._
   _Autor: Lucas Queiroz - Estagiário em Desenvolvimento de Software_

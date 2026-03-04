@@ -4,7 +4,6 @@ require("../utils/slugify");
 
 exports.createQuestion = async (req, res) => {
   const { title, description } = req.body;
-
   const cleanTitle = title ? title.trim() : "";
   const cleanDescription = description ? description.trim() : "";
   const slug = generateSlug(cleanTitle);

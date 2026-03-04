@@ -5,6 +5,7 @@ const app = express();
 const { Question, Answer } = require("./models/index");
 const database = require("./config/database");
 const questionRoutes = require("./routes/questionRoutes");
+const answerRoutes = require("./routes/answerRoutes");
 
 setupSecurity(app);
 
@@ -17,11 +18,8 @@ database
     console.error("Erro ao sincronizar banco:", error);
   });
 
-app.get("/", (req, res) => {
-  res.send("Hello World");
-});
-
 app.use("/api/question", questionRoutes);
+app.use("/api/answer", answerRoutes);
 
 app.listen(8000, () => {
   console.log("Servidor rodando");
